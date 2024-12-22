@@ -10,7 +10,6 @@ GuiManager::GuiManager(ExpenseTracker *expenseTracker)
     window = new Fl_Double_Window(xResolution, yResolution, "Expense Tracker");
     {
         startScreenGroup = new StartScreenGroup(0, 0, xResolution, yResolution, this);
-        startScreenGroup->hide();
 
         loginGroup = new LoginGroup(0, 0, xResolution, yResolution, this);
         loginGroup->hide();
@@ -19,7 +18,7 @@ GuiManager::GuiManager(ExpenseTracker *expenseTracker)
         registerGroup->hide();
 
         mainApplicationGroup = new MainApplicationGroup(0, 0, xResolution, yResolution, this);
-        // mainApplicationGroup->hide();
+        mainApplicationGroup->hide();
     }
     window->end();
 }

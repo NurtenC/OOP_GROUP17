@@ -9,7 +9,8 @@ LDFLAGS = -L C:\Users\HP\Desktop\fltk\lib -lfltk -lcomctl32 -lole32 -luuid -lgdi
 TARGET = ExpenseTracker.exe
 
 # Source Files
-SRCS = main.cpp ExpenseTracker.cpp GuiManager.cpp StartScreenGroup.cpp LoginGroup.cpp RegisterGroup.cpp MainApplicationGroup.cpp User.cpp UserInfoGroup.cpp AddGroup.cpp ReportGroup.cpp 
+SRCS = main.cpp ExpenseTracker.cpp GuiManager.cpp StartScreenGroup.cpp LoginGroup.cpp RegisterGroup.cpp \
+MainApplicationGroup.cpp User.cpp HomepageGroup.cpp AddGroup.cpp ReportGroup.cpp Date.cpp 
 
 
 # Build Rules

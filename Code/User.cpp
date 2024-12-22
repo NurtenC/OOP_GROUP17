@@ -8,6 +8,6 @@ std::string User::getUsername() const {
     return username;
 }
 
-bool User::checkPassword(const std::string& inputPassword) const {
-    return password == inputPassword;
+bool User::checkPassword(const std::string& password) const {
+    return this->password == password;
 }

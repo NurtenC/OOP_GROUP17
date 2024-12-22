@@ -2,7 +2,7 @@
 #include <FL/fl_ask.H>
 #include <sstream>
 #include <iomanip>
-#include "UserInfoGroup.h"
+#include "HomepageGroup.h"
 #include "AddGroup.h"
 #include "ReportGroup.h"
 
@@ -11,17 +11,15 @@ MainApplicationGroup::MainApplicationGroup(int x, int y, int w, int h, GuiManage
     : Fl_Group(x, y, w, h), guiManager(manager) {
 
 
-    bro = new Fl_Hold_Browser(10,10,150,580);
-    bro->add("User Info");
-    bro->add("Add");
-    bro->add("Generate Report");
+    browser = new Fl_Hold_Browser(10,10,150,580);
+    browser->textsize(23);
+    browser->add("Homepage");
+    browser->add("Add");
+    browser->add("Report");
 
-    grp[0] = new UserInfoGroup(170,10,450,400, manager);
-    grp[0]->end();
+    grp[0] = new HomepageGroup(0,0,800,600, manager);
     grp[1] = new AddGroup(0,0,800,600, manager);
-    grp[1]->end();
-    grp[2] = new ReportGroup(170,10,450,400,manager);
-    grp[2]->end();
+    grp[2] = new ReportGroup(0,0,800,600,manager);
 
 /*
     Fl_Box* mainAppLabel = new Fl_Box(x + 50, y + 20, 300, 30, "Expense");
@@ -39,23 +37,23 @@ MainApplicationGroup::MainApplicationGroup(int x, int y, int w, int h, GuiManage
     logoutButton = new Fl_Button(x + 10, y + 10, 60, 30, "Logout");
     logoutButton->callback(GuiManager::showStartScreenCallback, guiManager);
 */
-    bro->callback(SelectGroup_CB, this);
-    bro->select(1);
+    browser->callback(SelectGroup_CB, this);
+    browser->select(1);
     SelectGroup_CB(0,this);
     end();
 }
 
 void MainApplicationGroup::SelectGroup_CB(Fl_Widget*, void* data) {
-    MainApplicationGroup* self = static_cast<MainApplicationGroup*>(data);
-    int selected = self->bro->value();
+    MainApplicationGroup* mainGroup = static_cast<MainApplicationGroup*>(data);
+    int selected = mainGroup->browser->value();
 
     if (selected == 0) return;
 
     for (int t = 0; t < 3; t++) {
         if (t == (selected - 1)) {
-            self->grp[t]->show();
+            mainGroup->grp[t]->show();
         } else {
-            self->grp[t]->hide();
+            mainGroup->grp[t]->hide();
         }
     }
 }

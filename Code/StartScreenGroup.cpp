@@ -5,6 +5,7 @@
 
 StartScreenGroup::StartScreenGroup(int x, int y, int w, int h, GuiManager* manager)
     : Fl_Group(x, y, w, h) {
+        
     Fl_Box *startScreenLabel = new Fl_Box(x + w / 3, y + h / 5, 300, 50, "Welcome to Expense Tracker");
     startScreenLabel->labelsize(30);
     startScreenLabel->labelfont(FL_COURIER_BOLD);

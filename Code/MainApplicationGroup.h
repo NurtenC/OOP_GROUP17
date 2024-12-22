@@ -6,7 +6,6 @@
 #include <FL/Fl_Multiline_Output.H>
 #include <Fl/Fl_Hold_Browser.H>
 #include "GuiManager.h"
-#include "AddGroup.h"
 
 class MainApplicationGroup : public Fl_Group {
 public:
@@ -14,11 +13,11 @@ public:
     
 private:
     GuiManager* guiManager;
-    Fl_Hold_Browser *bro = 0;
-    Fl_Group *grp[3] = { 0,0,0 };
-    Fl_Input* descInput;
-    Fl_Input* amountInput;
-    Fl_Button* addExpenseButton;
+    Fl_Hold_Browser *browser;
+    Fl_Group *grp[3];
+    //Fl_Input* descInput;
+    //Fl_Input* amountInput;
+    //Fl_Button* addExpenseButton;
     Fl_Button* logoutButton;
 
     static void SelectGroup_CB(Fl_Widget*, void*);

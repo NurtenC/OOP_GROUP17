@@ -7,12 +7,14 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
 
     dateBox = new Fl_Box(500,10,150,60);
     dateBox->box(FL_FLAT_BOX);
+    dateBox->color(fl_rgb_color(0xa5,0xbd,0xfd));
     dateBox->labelsize(24);
     dateBox->labelfont(FL_HELVETICA);
     dateBox->labelcolor(fl_rgb_color(0x27, 0x29, 0x6d));
 
     timeBox = new Fl_Box(650,10,150,60);
     timeBox->box(FL_FLAT_BOX);
+    timeBox->color(fl_rgb_color(0xa5,0xbd,0xfd));
     timeBox->labelsize(24);
     timeBox->labelfont(FL_HELVETICA);
     timeBox->labelcolor(fl_rgb_color(0x27, 0x29, 0x6d));

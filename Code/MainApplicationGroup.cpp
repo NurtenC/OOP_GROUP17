@@ -13,6 +13,9 @@ MainApplicationGroup::MainApplicationGroup(int x, int y, int w, int h, GuiManage
 
     browser = new Fl_Hold_Browser(10,10,150,580);
     browser->textsize(23);
+    //browser->color2(fl_rgb_color(0x77,0x52,0x9e));
+    //browser->color(fl_rgb_color(0xdc,0xb5,0xff));
+    //browser->labelcolor();
     browser->add("Homepage");
     browser->add("Add");
     browser->add("Report");

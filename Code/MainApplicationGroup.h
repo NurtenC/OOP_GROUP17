@@ -11,13 +11,12 @@ class MainApplicationGroup : public Fl_Group {
 public:
     MainApplicationGroup(int x, int y, int w, int h, GuiManager* manager);
     
+    void update();
+
 private:
     GuiManager* guiManager;
     Fl_Hold_Browser *browser;
     Fl_Group *grp[3];
-    //Fl_Input* descInput;
-    //Fl_Input* amountInput;
-    //Fl_Button* addExpenseButton;
     Fl_Button* logoutButton;
 
     static void SelectGroup_CB(Fl_Widget*, void*);

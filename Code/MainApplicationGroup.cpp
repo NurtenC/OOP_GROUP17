@@ -24,29 +24,21 @@ MainApplicationGroup::MainApplicationGroup(int x, int y, int w, int h, GuiManage
     grp[1] = new AddGroup(0,0,800,600, manager);
     grp[2] = new ReportGroup(0,0,800,600,manager);
 
-/*
-    Fl_Box* mainAppLabel = new Fl_Box(x + 50, y + 20, 300, 30, "Expense");
-    mainAppLabel->labelsize(16);
-    mainAppLabel->align(FL_ALIGN_CENTER | FL_ALIGN_INSIDE);
-
-    descInput = new Fl_Input(x + 100, y + 60, 200, 30, "Description:");
-    descInput->labelsize(14);
-
-    amountInput = new Fl_Input(x + 100, y + 100, 200, 30, "Amount:");
-    amountInput->labelsize(14);
-
-    addExpenseButton = new Fl_Button(x + 150, y + 180, 100, 30, "Add Expense");
-
-    logoutButton = new Fl_Button(x + 10, y + 10, 60, 30, "Logout");
-    logoutButton->callback(GuiManager::showStartScreenCallback, guiManager);
-*/
     browser->callback(SelectGroup_CB, this);
     browser->select(1);
     SelectGroup_CB(0,this);
     end();
 }
 
-void MainApplicationGroup::SelectGroup_CB(Fl_Widget*, void* data) {
+void MainApplicationGroup::update()
+{
+    if(grp[2] != nullptr){
+        static_cast<ReportGroup*>(grp[2])->update();
+    }
+}
+
+void MainApplicationGroup::SelectGroup_CB(Fl_Widget *, void *data)
+{
     MainApplicationGroup* mainGroup = static_cast<MainApplicationGroup*>(data);
     int selected = mainGroup->browser->value();
 
@@ -60,4 +52,3 @@ void MainApplicationGroup::SelectGroup_CB(Fl_Widget*, void* data) {
         }
     }
 }
-

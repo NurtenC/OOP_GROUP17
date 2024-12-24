@@ -13,7 +13,7 @@ GuiManager::GuiManager(ExpenseTracker *expenseTracker)
     window->color(fl_rgb_color(0xa5,0xbd,0xfd));//
     {
         startScreenGroup = new StartScreenGroup(0, 0, xResolution, yResolution, this);
-        startScreenGroup->hide();
+        //startScreenGroup->hide();
         loginGroup = new LoginGroup(0, 0, xResolution, yResolution, this);
         loginGroup->hide();
 
@@ -21,7 +21,7 @@ GuiManager::GuiManager(ExpenseTracker *expenseTracker)
         registerGroup->hide();
 
         mainApplicationGroup = new MainApplicationGroup(0, 0, xResolution, yResolution, this);
-        //mainApplicationGroup->hide();
+        mainApplicationGroup->hide();
     }
     window->end();
 }
@@ -90,4 +90,9 @@ void GuiManager::showRegisterCallback(Fl_Widget *, void *data)
 {
     GuiManager *gm = static_cast<GuiManager *>(data);
     gm->showRegister();
+}
+
+void GuiManager::update()
+{
+    mainApplicationGroup->update();
 }

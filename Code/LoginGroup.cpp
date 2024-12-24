@@ -47,6 +47,7 @@ void LoginGroup::loginCallback(Fl_Widget* widget, void* data) {
     if (expenseTracker->login(username, password)) {
         fl_message("Login successful! Welcome, %s.", expenseTracker->getCurrentUsername().c_str());
         guiManager->showMainApplication();
+        guiManager->update();
     }
     else {
         fl_alert("Invalid username or password. Please try again.");

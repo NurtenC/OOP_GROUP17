@@ -48,6 +48,7 @@ void RegisterGroup::registerCallback(Fl_Widget* widget, void* data) {
 
     if (expenseTracker->registerUser(username, password)) {
         fl_message("Registration successful! Please log in.");
+        guiManager->update();
         guiManager->showLogin();
     }
     else {

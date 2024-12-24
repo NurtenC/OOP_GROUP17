@@ -10,7 +10,8 @@ TARGET = ExpenseTracker.exe
 
 # Source Files
 SRCS = main.cpp ExpenseTracker.cpp GuiManager.cpp StartScreenGroup.cpp LoginGroup.cpp RegisterGroup.cpp \
-MainApplicationGroup.cpp User.cpp HomepageGroup.cpp AddGroup.cpp ReportGroup.cpp Date.cpp 
+MainApplicationGroup.cpp User.cpp HomepageGroup.cpp AddGroup.cpp ReportGroup.cpp Date.cpp Expense.cpp ExpenseTable.cpp \
+
 
 
 # Build Rules

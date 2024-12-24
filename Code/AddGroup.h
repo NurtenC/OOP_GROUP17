@@ -12,9 +12,13 @@ public:
 
 private:
     GuiManager* guiManager;
-    Fl_Choice* choice;
-    Fl_Input* description;
-    Fl_Input* amount;
+    Fl_Choice* expenseChoice;
+    Fl_Input* expenseDescription;
+    Fl_Input* expenseAmount;
+
+    Fl_Input* incomeDescription;
+    Fl_Input* incomeAmount;
 
     static void addExpenseCallback(Fl_Widget* widget, void* data);
+    static void addIncomeCallback(Fl_Widget* widget, void* data);
 };

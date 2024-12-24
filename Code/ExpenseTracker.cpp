@@ -1,6 +1,7 @@
 #include "ExpenseTracker.h"
 
-ExpenseTracker::ExpenseTracker(){
+ExpenseTracker::ExpenseTracker()
+{
 
     currentUser = nullptr;
     expenses = nullptr;
@@ -8,19 +9,23 @@ ExpenseTracker::ExpenseTracker(){
     date = new Date(time);
 }
 
-ExpenseTracker::~ExpenseTracker(){
+ExpenseTracker::~ExpenseTracker()
+{
 
     delete date;
 }
 
-bool ExpenseTracker::userExists(const std::string& username) const {
+bool ExpenseTracker::userExists(const std::string &username) const
+{
 
     return users.find(username) != users.end();
 }
 
-bool ExpenseTracker::registerUser(const std::string& username, const std::string& password) {
+bool ExpenseTracker::registerUser(const std::string &username, const std::string &password)
+{
 
-    if (userExists(username)) {
+    if (userExists(username))
+    {
 
         return false;
     }
@@ -28,10 +33,12 @@ bool ExpenseTracker::registerUser(const std::string& username, const std::string
     return true;
 }
 
-bool ExpenseTracker::login(const std::string& username, const std::string& password) {
+bool ExpenseTracker::login(const std::string &username, const std::string &password)
+{
 
     auto iterator = users.find(username);
-    if (iterator != users.end() && iterator->second.checkPassword(password)) {
+    if (iterator != users.end() && iterator->second.checkPassword(password))
+    {
 
         currentUser = &(iterator->second);
         return true;
@@ -39,44 +46,60 @@ bool ExpenseTracker::login(const std::string& username, const std::string& passw
     return false;
 }
 
-void ExpenseTracker::logout() {
+void ExpenseTracker::logout()
+{
 
     currentUser = nullptr;
 }
 
-std::string ExpenseTracker::getCurrentUsername() const {
+std::string ExpenseTracker::getCurrentUsername() const
+{
 
-    if (currentUser) {
-        
+    if (currentUser)
+    {
+
         return currentUser->getUsername();
     }
     return "";
 }
 
-Date* ExpenseTracker::getDate(){
+Date *ExpenseTracker::getDate()
+{
 
     return date;
 }
 
-std::chrono::system_clock::time_point ExpenseTracker::getTime()const{
+std::chrono::system_clock::time_point ExpenseTracker::getTime() const
+{
 
     return time;
 }
 
 std::vector<Expense> *ExpenseTracker::getExpenses()
 {
-    if(currentUser){
+    if (currentUser)
+    {
         return currentUser->getExpenses();
     }
     return nullptr;
 }
 
-void ExpenseTracker::updateTime(int time){
-    this->time += std::chrono::seconds(time);
-    
+std::vector<Income> *ExpenseTracker::getIncomes()
+{
+    if (currentUser)
+    {
+        return currentUser->getIncomes();
+    }
+    return nullptr;
 }
 
-void ExpenseTracker::updateDate(std::chrono::system_clock::time_point time){
+void ExpenseTracker::updateTime(int time)
+{
+    this->time += std::chrono::seconds(time);
+}
+
+void ExpenseTracker::updateDate(std::chrono::system_clock::time_point time)
+{
 
     delete date;
     date = new Date(time);
@@ -85,6 +108,11 @@ void ExpenseTracker::updateDate(std::chrono::system_clock::time_point time){
 void ExpenseTracker::addExpense(Expense expense)
 {
     currentUser->addExpense(expense);
+}
+
+void ExpenseTracker::addIncome(Income income)
+{
+    currentUser->addIncome(income);
 }
 
 Category ExpenseTracker::getCategory(int index)

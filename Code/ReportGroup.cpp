@@ -1,7 +1,16 @@
 #include "ReportGroup.h"
-ReportGroup::ReportGroup(int x, int y, int w, int h, GuiManager* manager)
-    : Fl_Group(x, y, w, h), guiManager(manager) {
+ReportGroup::ReportGroup(int x, int y, int w, int h, GuiManager *manager)
+    : Fl_Group(x, y, w, h), guiManager(manager)
+{
+    expenseTable = new ExpenseTable(180, 30, 400, 400, nullptr);
+    end();
+}
 
-        new Fl_Input(170+140,160+00,200,20,"ReportInfo:");
-        end();
+void ReportGroup::update()
+{
+    if (expenseTable != nullptr)
+    {
+        std::vector<Expense> *expenses = guiManager->getExpenseTracker()->getExpenses();
+        expenseTable->updateTable(expenses);
     }
+}

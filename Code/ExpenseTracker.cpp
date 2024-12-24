@@ -3,6 +3,7 @@
 ExpenseTracker::ExpenseTracker(){
 
     currentUser = nullptr;
+    expenses = nullptr;
     time = std::chrono::system_clock::now();
     date = new Date(time);
 }
@@ -52,7 +53,7 @@ std::string ExpenseTracker::getCurrentUsername() const {
     return "";
 }
 
-Date* ExpenseTracker::getDate()const{
+Date* ExpenseTracker::getDate(){
 
     return date;
 }
@@ -60,6 +61,14 @@ Date* ExpenseTracker::getDate()const{
 std::chrono::system_clock::time_point ExpenseTracker::getTime()const{
 
     return time;
+}
+
+std::vector<Expense> *ExpenseTracker::getExpenses()
+{
+    if(currentUser){
+        return currentUser->getExpenses();
+    }
+    return nullptr;
 }
 
 void ExpenseTracker::updateTime(int time){
@@ -73,3 +82,25 @@ void ExpenseTracker::updateDate(std::chrono::system_clock::time_point time){
     date = new Date(time);
 }
 
+void ExpenseTracker::addExpense(Expense expense)
+{
+    currentUser->addExpense(expense);
+}
+
+Category ExpenseTracker::getCategory(int index)
+{
+    return categories[index];
+}
+
+std::array<Category, 10> ExpenseTracker::categories = {
+    Category::GROCERY,
+    Category::HEALTH,
+    Category::ENTERTAINMENT,
+    Category::EDUCATION,
+    Category::TRANSPORTATION,
+    Category::PERSONAL_CARE,
+    Category::CLOTHES,
+    Category::TAX,
+    Category::BILL,
+    Category::RENT,
+};

@@ -25,6 +25,7 @@ public:
     static void showStartScreenCallback(Fl_Widget*, void* data);
     static void showLoginCallback(Fl_Widget*, void* data);
     static void showRegisterCallback(Fl_Widget*, void* data); 
+    void update();
 
 private:
     ExpenseTracker* expenseTracker;

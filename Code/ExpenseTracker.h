@@ -23,9 +23,11 @@ public:
     Date* getDate();
     std::chrono::system_clock::time_point getTime()const;
     std::vector<Expense>* getExpenses();
+    std::vector<Income>* getIncomes();
     void updateTime(int time);
     void updateDate(std::chrono::system_clock::time_point time);
     void addExpense(Expense expense);
+    void addIncome(Income income);
 
     static Category getCategory(int index);
 

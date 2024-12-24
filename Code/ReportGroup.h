@@ -3,6 +3,7 @@
 #include <FL/Fl_Input.H>
 #include "GuiManager.h"
 #include "ExpenseTable.h"
+#include "IncomeTable.h"
 
 class ReportGroup : public Fl_Group{
 public:
@@ -12,4 +13,5 @@ public:
 private:
     GuiManager* guiManager;
     ExpenseTable* expenseTable;
+    IncomeTable* incomeTable;
 };

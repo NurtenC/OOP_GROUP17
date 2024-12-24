@@ -15,22 +15,22 @@ AddGroup::AddGroup(int x, int y, int w, int h, GuiManager *manager)
         expense->color(fl_rgb_color(0x96, 0x7e, 0xd7));
         expense->color2(fl_rgb_color(0x96, 0x7e, 0xd7));
         {
-            choice = new Fl_Choice(250, 100, 150, 40, "Category:");
-            choice->labelcolor(fl_rgb_color(0x0c, 0x00, 0x5a));
-            choice->color2(FL_WHITE);
-            choice->add("Grocery");
-            choice->add("Health");
-            choice->add("Entertainment");
-            choice->add("Education");
-            choice->add("Transportation");
-            choice->add("Personal Care");
-            choice->add("Clothes");
-            choice->add("Tax");
-            choice->add("Bill");
-            choice->add("Rent");
+            expenseChoice = new Fl_Choice(250, 100, 150, 40, "Category:");
+            expenseChoice->labelcolor(fl_rgb_color(0x0c, 0x00, 0x5a));
+            expenseChoice->color2(FL_WHITE);
+            expenseChoice->add("Grocery");
+            expenseChoice->add("Health");
+            expenseChoice->add("Entertainment");
+            expenseChoice->add("Education");
+            expenseChoice->add("Transportation");
+            expenseChoice->add("Personal Care");
+            expenseChoice->add("Clothes");
+            expenseChoice->add("Tax");
+            expenseChoice->add("Bill");
+            expenseChoice->add("Rent");
 
-            description = new Fl_Input(250, 150, 250, 40, "Description:");
-            amount = new Fl_Input(250, 200, 100, 40, "Amount:");
+            expenseDescription = new Fl_Input(250, 150, 250, 40, "Description:");
+            expenseAmount = new Fl_Input(250, 200, 100, 40, "Amount:");
             Fl_Button *addExpenseButton = new Fl_Button(430, 300, 100, 40, "Add");
             addExpenseButton->color(fl_rgb_color(0x4f, 0x3b, 0x78));
             addExpenseButton->labelcolor(FL_WHITE);
@@ -56,6 +56,15 @@ AddGroup::AddGroup(int x, int y, int w, int h, GuiManager *manager)
         income->labelcolor(FL_WHITE);
         income->labelsize(20);
         {
+            incomeDescription = new Fl_Input(250, 150, 250, 40, "Description:");
+            incomeAmount = new Fl_Input(250, 200, 100, 40, "Amount:");
+            Fl_Button *addIncomeButton = new Fl_Button(430, 300, 100, 40, "Add");
+            addIncomeButton->color(fl_rgb_color(0x4f, 0x3b, 0x78));
+            addIncomeButton->labelcolor(FL_WHITE);
+            addIncomeButton->color2(fl_rgb_color(0xff, 0xd3, 0xb6));
+            addIncomeButton->align(FL_ALIGN_CENTER | FL_ALIGN_INSIDE);
+            addIncomeButton->labelsize(15);
+            addIncomeButton->callback(addIncomeCallback, this);
         }
         income->end();
 
@@ -78,9 +87,9 @@ void AddGroup::addExpenseCallback(Fl_Widget *widget, void *data)
     GuiManager *gm = ag->guiManager;
     ExpenseTracker *et = gm->getExpenseTracker();
 
-    int categoryIndex = ag->choice->value();
-    std::string description = ag->description->value();
-    std::string amount = ag->amount->value();
+    int categoryIndex = ag->expenseChoice->value();
+    std::string description = ag->expenseDescription->value();
+    std::string amount = ag->expenseAmount->value();
     double value;
 
     if (categoryIndex < 0 || description.empty() || amount.empty())
@@ -102,8 +111,41 @@ void AddGroup::addExpenseCallback(Fl_Widget *widget, void *data)
     Expense expense(*(et->getDate()), category, description, value);
     et->addExpense(expense);
     fl_message("Expense successfully added!");
-    ag->choice->value(-1);
-    ag->description->value("");
-    ag->amount->value("");
+    ag->expenseChoice->value(-1);
+    ag->expenseDescription->value("");
+    ag->expenseAmount->value("");
+    gm->update();
+}
+
+void AddGroup::addIncomeCallback(Fl_Widget *widget, void *data)
+{
+     AddGroup *ag = static_cast<AddGroup *>(data);
+    GuiManager *gm = ag->guiManager;
+    ExpenseTracker *et = gm->getExpenseTracker();
+
+    std::string description = ag->incomeDescription->value();
+    std::string amount = ag->incomeAmount->value();
+    double value;
+
+    if (description.empty() || amount.empty())
+    {
+        fl_alert("Description and amount cannot be empty");
+        return;
+    }
+    try
+    {
+        value = std::stod(amount);
+    }
+    catch (const std::invalid_argument &e)
+    {
+        fl_alert("Amount must be number");
+        return;
+    }
+
+    Income income(*(et->getDate()),description, value);
+    et->addIncome(income);
+    fl_message("Income successfully added!");
+    ag->incomeDescription->value("");
+    ag->incomeAmount->value("");
     gm->update();
 }

@@ -13,6 +13,7 @@ private:
     GuiManager* guiManager;
     Fl_Input* usernameInput;
     Fl_Input* passwordInput;
+    Fl_Input* budgetInput;
 
     static void registerCallback(Fl_Widget* widget, void* data);
 };

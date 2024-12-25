@@ -4,6 +4,7 @@
 #include "GuiManager.h"
 #include "ExpenseTable.h"
 #include "IncomeTable.h"
+#include <FL/Fl_Choice.H>
 
 class ReportGroup : public Fl_Group{
 public:
@@ -14,4 +15,7 @@ private:
     GuiManager* guiManager;
     ExpenseTable* expenseTable;
     IncomeTable* incomeTable;
+    Fl_Choice* expenseReportCategory;
+    Fl_Choice* expenseReportTime;
+    Fl_Choice* incomeReportTime;
 };

@@ -35,6 +35,10 @@ void MainApplicationGroup::update()
     if(grp[2] != nullptr){
         static_cast<ReportGroup*>(grp[2])->update();
     }
+    
+    if(grp[0] != nullptr){
+        static_cast<HomepageGroup*>(grp[0])->update();
+    }
 }
 
 void MainApplicationGroup::SelectGroup_CB(Fl_Widget *, void *data)

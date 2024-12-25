@@ -16,7 +16,5 @@ public:
 
     void draw_cell(TableContext tableContext, int row, int col, int x, int y, int w, int h)override;
     void updateTable(std::vector<Expense>* expenses);
-
-    
     
 };

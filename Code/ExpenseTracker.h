@@ -15,11 +15,12 @@ public:
     ExpenseTracker();
     ~ExpenseTracker();
 
-    bool registerUser(const std::string& username, const std::string& password);
+    bool registerUser(const std::string& username, const std::string& password, double budget);
     bool login(const std::string& username, const std::string& password);
     void logout();
 
-    std::string getCurrentUsername() const;
+    std::string getCurrentUsername()const;
+    std::string getBudgetAsString() const;
     Date* getDate();
     std::chrono::system_clock::time_point getTime()const;
     std::vector<Expense>* getExpenses();

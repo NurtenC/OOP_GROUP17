@@ -21,7 +21,7 @@ bool ExpenseTracker::userExists(const std::string &username) const
     return users.find(username) != users.end();
 }
 
-bool ExpenseTracker::registerUser(const std::string &username, const std::string &password)
+bool ExpenseTracker::registerUser(const std::string &username, const std::string &password, double budget)
 {
 
     if (userExists(username))
@@ -29,7 +29,7 @@ bool ExpenseTracker::registerUser(const std::string &username, const std::string
 
         return false;
     }
-    users.emplace(username, User(username, password));
+    users.emplace(username, User(username, password, budget));
     return true;
 }
 
@@ -48,19 +48,26 @@ bool ExpenseTracker::login(const std::string &username, const std::string &passw
 
 void ExpenseTracker::logout()
 {
-
     currentUser = nullptr;
 }
 
 std::string ExpenseTracker::getCurrentUsername() const
 {
-
     if (currentUser)
     {
-
         return currentUser->getUsername();
     }
     return "";
+}
+
+std::string ExpenseTracker::getBudgetAsString() const
+{
+    if (currentUser)
+    {
+        return currentUser->getBudgetAsString();
+    }
+    return "";
+    
 }
 
 Date *ExpenseTracker::getDate()

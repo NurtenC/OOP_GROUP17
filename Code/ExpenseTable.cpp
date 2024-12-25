@@ -17,12 +17,14 @@ ExpenseTable::ExpenseTable(int x, int y, int w, int h, std::vector<Expense> *exp
 
 void ExpenseTable::draw_cell(TableContext tableContext, int row, int col, int x, int y, int w, int h)
 {
-    if(expenses == nullptr){
-        if(tableContext == CONTEXT_CELL){
+    if (expenses == nullptr)
+    {
+        if (tableContext == CONTEXT_CELL)
+        {
             fl_color(FL_WHITE);
-            fl_rectf(x,y,w,h);
+            fl_rectf(x, y, w, h);
             fl_color(FL_BLACK);
-            fl_draw("No data", x+5, y, w, h, FL_ALIGN_CENTER);
+            fl_draw("No data", x + 5, y, w, h, FL_ALIGN_CENTER);
         }
         return;
     }
@@ -34,7 +36,7 @@ void ExpenseTable::draw_cell(TableContext tableContext, int row, int col, int x,
     case CONTEXT_STARTPAGE:
         fl_font(FL_HELVETICA, 14);
         break;
-    case CONTEXT_COL_HEADER:
+    case CONTEXT_COL_HEADER: // regularExpense->color(fl_rgb_color(0x96, 0x7e, 0xd7));
         static const char *headers[] = {"Date", "Category", "Amount", "Description"};
         fl_draw_box(FL_THIN_UP_BOX, x, y, w, h, FL_WHITE);
         fl_color(FL_BLACK);

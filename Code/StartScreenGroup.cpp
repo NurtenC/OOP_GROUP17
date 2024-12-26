@@ -1,7 +1,3 @@
-/**
- * @file StartScreenGroup.cpp
- * @brief Implements the StartScreenGroup class for displaying the start screen within the GUI.
- */
 
 #include "StartScreenGroup.h"
 #include "GuiManager.h"

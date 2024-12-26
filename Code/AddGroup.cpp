@@ -1,7 +1,3 @@
-/**
- * @file AddGroup.cpp
- * @brief Implements the AddGroup class for managing expense and income entries in the GUI.
- */
 
 #include "AddGroup.h"
 #include <FL/fl_ask.H>
@@ -14,16 +10,6 @@
 #include <chrono>
 #include <ctime>
 
-/**
- * @brief Opens a calendar window for selecting a date.
- * 
- * This function creates a small window with input fields for day and month,
- * allowing the user to input a date. Upon confirmation, the selected date is
- * formatted and set in the provided date input field.
- * 
- * @param widget The widget triggering the callback.
- * @param data A pointer to the Fl_Input widget where the selected date will be displayed.
- */
 void open_calendar(Fl_Widget *widget, void *data) {
     Fl_Window *calendar_window = new Fl_Window(200, 200, "Select Date");
     calendar_window->begin();
@@ -54,19 +40,7 @@ void open_calendar(Fl_Widget *widget, void *data) {
     calendar_window->show();
 }
 
-/**
- * @brief Constructs the AddGroup.
- * 
- * Initializes all the GUI components for managing expenses and incomes,
- * including tabs for different categories and their respective input fields.
- * Sets up callbacks for adding entries and opening the calendar.
- * 
- * @param x X-coordinate of the group.
- * @param y Y-coordinate of the group.
- * @param w Width of the group.
- * @param h Height of the group.
- * @param manager Pointer to the GuiManager instance.
- */
+
 AddGroup::AddGroup(int x, int y, int w, int h, GuiManager *manager)
     : Fl_Group(x, y, w, h), guiManager(manager)
 {
@@ -208,16 +182,7 @@ AddGroup::AddGroup(int x, int y, int w, int h, GuiManager *manager)
     end();
 }
 
-/**
- * @brief Callback for adding a regular expense.
- * 
- * This function is triggered when the user clicks the "Add" button in the Regular Expense tab.
- * It validates the input fields, converts the amount and date, creates an Expense object,
- * and adds it to the ExpenseTracker. Upon success, it clears the input fields and updates the GUI.
- * 
- * @param widget The widget triggering the callback.
- * @param data Pointer to the AddGroup instance.
- */
+
 void AddGroup::addRegularExpenseCallback(Fl_Widget *widget, void *data) {
     AddGroup *ag = static_cast<AddGroup *>(data);
     GuiManager *gm = ag->guiManager;
@@ -280,16 +245,7 @@ void AddGroup::addRegularExpenseCallback(Fl_Widget *widget, void *data) {
     }
 }
 
-/**
- * @brief Callback for adding a regular income.
- * 
- * This function is triggered when the user clicks the "Add" button in the Regular Income tab.
- * It validates the input fields, converts the amount and date, creates an Income object,
- * and adds it to the ExpenseTracker. Upon success, it clears the input fields and updates the GUI.
- * 
- * @param widget The widget triggering the callback.
- * @param data Pointer to the AddGroup instance.
- */
+
 void AddGroup::addRegularIncomeCallback(Fl_Widget *widget, void *data) {
     AddGroup *ag = static_cast<AddGroup *>(data);
     GuiManager *gm = ag->guiManager;
@@ -349,16 +305,6 @@ void AddGroup::addRegularIncomeCallback(Fl_Widget *widget, void *data) {
     }
 }
 
-/**
- * @brief Callback for adding a one-time expense.
- * 
- * This function is triggered when the user clicks the "Add" button in the Expense tab.
- * It validates the input fields, converts the amount, creates an Expense object,
- * and adds it to the ExpenseTracker. Upon success, it clears the input fields and updates the GUI.
- * 
- * @param widget The widget triggering the callback.
- * @param data Pointer to the AddGroup instance.
- */
 void AddGroup::addExpenseCallback(Fl_Widget *widget, void *data)
 {
     AddGroup *ag = static_cast<AddGroup *>(data);
@@ -397,16 +343,7 @@ void AddGroup::addExpenseCallback(Fl_Widget *widget, void *data)
     gm->update();
 }
 
-/**
- * @brief Callback for adding a one-time income.
- * 
- * This function is triggered when the user clicks the "Add" button in the Income tab.
- * It validates the input fields, converts the amount, creates an Income object,
- * and adds it to the ExpenseTracker. Upon success, it clears the input fields and updates the GUI.
- * 
- * @param widget The widget triggering the callback.
- * @param data Pointer to the AddGroup instance.
- */
+
 void AddGroup::addIncomeCallback(Fl_Widget *widget, void *data)
 {
     AddGroup *ag = static_cast<AddGroup *>(data);

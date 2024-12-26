@@ -1,22 +1,8 @@
-/**
- * @file ExpenseTable.cpp
- * @brief Implements the ExpenseTable class for displaying expenses in a table format.
- */
 
 #include "ExpenseTable.h"
 #include <FL/fl_draw.H>
 
-/**
- * @brief Constructs an ExpenseTable with the specified position, size, and expenses.
- *
- * Initializes the table with default settings such as number of rows, columns, headers, and column widths.
- *
- * @param x The x-coordinate of the table.
- * @param y The y-coordinate of the table.
- * @param w The width of the table.
- * @param h The height of the table.
- * @param expenses A pointer to a vector of Expense objects to be displayed in the table.
- */
+
 ExpenseTable::ExpenseTable(int x, int y, int w, int h, std::vector<Expense> *expenses) 
     : Fl_Table_Row(x, y, w, h, "Expense Table")
 {
@@ -33,20 +19,6 @@ ExpenseTable::ExpenseTable(int x, int y, int w, int h, std::vector<Expense> *exp
     end();
 }
 
-/**
- * @brief Draws a cell in the ExpenseTable based on the table context, row, and column.
- *
- * Handles the rendering of different parts of the table, including headers and data cells.
- * Displays "No data" if the expenses pointer is null.
- *
- * @param tableContext The context in which the cell is being drawn (e.g., header, cell).
- * @param row The row index of the cell.
- * @param col The column index of the cell.
- * @param x The x-coordinate of the cell.
- * @param y The y-coordinate of the cell.
- * @param w The width of the cell.
- * @param h The height of the cell.
- */
 void ExpenseTable::draw_cell(TableContext tableContext, int row, int col, int x, int y, int w, int h)
 {
     if (expenses == nullptr)
@@ -101,14 +73,6 @@ void ExpenseTable::draw_cell(TableContext tableContext, int row, int col, int x,
     }
 }
 
-/**
- * @brief Updates the ExpenseTable with a new set of expenses.
- *
- * Sets the expenses pointer to the new vector of Expense objects, updates the number of rows,
- * and redraws the table to reflect the changes.
- *
- * @param expenses A pointer to a new vector of Expense objects to be displayed in the table.
- */
 void ExpenseTable::updateTable(std::vector<Expense> *expenses)
 {
     this->expenses = expenses;

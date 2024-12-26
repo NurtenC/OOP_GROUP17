@@ -1,23 +1,9 @@
-/**
- * @file IncomeTable.cpp
- * @brief Implements the IncomeTable class for displaying incomes in a table format.
- */
+
 
 #include "IncomeTable.h"
 #include <FL/fl_draw.H>
 
-/**
- * @brief Constructs an IncomeTable object.
- *
- * Initializes the income table with specified position, size, and a pointer to the incomes vector.
- * Sets up default table properties such as number of rows, columns, headers, and column widths.
- *
- * @param x The x-coordinate of the table.
- * @param y The y-coordinate of the table.
- * @param w The width of the table.
- * @param h The height of the table.
- * @param incomes Pointer to a vector of Income objects to be displayed in the table.
- */
+
 IncomeTable::IncomeTable(int x, int y, int w, int h, std::vector<Income>* incomes)
     : Fl_Table_Row(x, y, w, h, "Income Table"), incomes(incomes)
 {
@@ -32,20 +18,7 @@ IncomeTable::IncomeTable(int x, int y, int w, int h, std::vector<Income>* income
     end();
 }
 
-/**
- * @brief Draws a cell in the IncomeTable based on the table context, row, and column.
- *
- * Handles the rendering of different parts of the table, including headers and data cells.
- * Displays "No data" if the incomes pointer is null.
- *
- * @param tableContext The context in which the cell is being drawn (e.g., header, cell).
- * @param row The row index of the cell.
- * @param col The column index of the cell.
- * @param x The x-coordinate of the cell.
- * @param y The y-coordinate of the cell.
- * @param w The width of the cell.
- * @param h The height of the cell.
- */
+
 void IncomeTable::draw_cell(TableContext tableContext, int row, int col, int x, int y, int w, int h)
 {
     if (incomes == nullptr)
@@ -99,14 +72,7 @@ void IncomeTable::draw_cell(TableContext tableContext, int row, int col, int x, 
     }
 }
 
-/**
- * @brief Updates the IncomeTable with a new set of incomes.
- *
- * Sets the incomes pointer to the new vector of Income objects, updates the number of rows,
- * and redraws the table to reflect the changes.
- *
- * @param incomes Pointer to a new vector of Income objects to be displayed in the table.
- */
+
 void IncomeTable::updateTable(std::vector<Income>* incomes)
 {
     this->incomes = incomes;

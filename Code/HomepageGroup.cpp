@@ -1,7 +1,3 @@
-/**
- * @file HomepageGroup.cpp
- * @brief Implements the HomepageGroup class for displaying the homepage in the GUI.
- */
 
 #include "HomepageGroup.h"
 #include "Date.h"
@@ -10,18 +6,6 @@
 #include <FL/Fl_Group.H>   
 #include <FL/Fl_Input.H>   
 
-/**
- * @brief Constructs a HomepageGroup object.
- *
- * Initializes the homepage with welcome labels, date and time displays, a logout button,
- * and tabs for User Info and Settings. Sets up callbacks for updating time and handling logout.
- *
- * @param x The x-coordinate of the group.
- * @param y The y-coordinate of the group.
- * @param w The width of the group.
- * @param h The height of the group.
- * @param manager Pointer to the GuiManager instance.
- */
 HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
     : Fl_Group(x, y, w, h), guiManager(manager)
 {
@@ -158,14 +142,6 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
     end(); // End of Fl_Group
 }
 
-/**
- * @brief Callback function to update the time display.
- *
- * This function is called periodically to update the date and time displayed on the homepage.
- * It updates the ExpenseTracker's time, refreshes the date and time boxes, and reschedules itself.
- *
- * @param data Pointer to the HomepageGroup instance.
- */
 void HomepageGroup::updateTimeCallback(void *data)
 {
     HomepageGroup* hp = static_cast<HomepageGroup*>(data);
@@ -184,15 +160,7 @@ void HomepageGroup::updateTimeCallback(void *data)
     Fl::repeat_timeout(0.001, updateTimeCallback, data);
 }
 
-/**
- * @brief Callback function to handle user logout.
- *
- * This function is triggered when the user clicks the "Log Out" button.
- * It logs out the current user, displays a confirmation message, and navigates back to the start screen.
- *
- * @param widget The widget triggering the callback.
- * @param data Pointer to the HomepageGroup instance.
- */
+
 void HomepageGroup::logoutCallback(Fl_Widget *widget, void *data)
 {
     HomepageGroup* homepageGroup = static_cast<HomepageGroup*>(data);
@@ -205,11 +173,7 @@ void HomepageGroup::logoutCallback(Fl_Widget *widget, void *data)
     guiManager->update();
 }
 
-/**
- * @brief Updates the user information display on the homepage.
- *
- * This function updates the username and budget labels based on the current user's information.
- */
+
 void HomepageGroup::update()
 {
     if (userInfoUsernameLabel) {
@@ -223,17 +187,7 @@ void HomepageGroup::update()
         );
     }
 }
-/**
- * @brief Callback function to handle saving user settings.
- *
- * This function is triggered when the user clicks the "Save" button in the Settings tab.
- * It validates the input fields, updates the user's information in the ExpenseTracker,
- * and provides feedback to the user. If the update is successful, the user is logged out 
- * and redirected to the login screen to re-authenticate with updated credentials.
- *
- * @param widget Pointer to the widget triggering the callback.
- * @param data Pointer to the HomepageGroup instance.
- */
+
 void HomepageGroup::saveSettingsCallback(Fl_Widget* widget, void* data)
 {
     HomepageGroup* hg = static_cast<HomepageGroup*>(data);

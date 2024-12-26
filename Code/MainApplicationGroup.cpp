@@ -1,25 +1,9 @@
-/**
- * @file MainApplicationGroup.cpp
- * @brief Implements the MainApplicationGroup class for managing the main application interface.
- */
 
 #include "MainApplicationGroup.h"
 #include <FL/fl_ask.H>
 #include <sstream>
 #include <iomanip>
 
-/**
- * @brief Constructs a MainApplicationGroup object.
- *
- * Initializes the main application interface with a navigation browser and associated groups
- * for Homepage, Add, and Report sections. Sets up callbacks for handling navigation.
- *
- * @param x The x-coordinate of the group.
- * @param y The y-coordinate of the group.
- * @param w The width of the group.
- * @param h The height of the group.
- * @param manager Pointer to the GuiManager instance managing the GUI.
- */
 MainApplicationGroup::MainApplicationGroup(int x, int y, int w, int h, GuiManager* manager)
     : Fl_Group(x, y, w, h), guiManager(manager) {
 
@@ -43,11 +27,7 @@ MainApplicationGroup::MainApplicationGroup(int x, int y, int w, int h, GuiManage
     end(); // End of Fl_Group
 }
 
-/**
- * @brief Updates the contents of the main application groups.
- *
- * Calls the update methods of the ReportGroup and HomepageGroup to refresh their displayed information.
- */
+
 void MainApplicationGroup::update()
 {
     if(grp[2] != nullptr){
@@ -59,15 +39,7 @@ void MainApplicationGroup::update()
     }
 }
 
-/**
- * @brief Callback function to handle navigation selection.
- *
- * This static function is triggered when a selection is made in the browser.
- * It shows the selected group and hides the others based on the user's choice.
- *
- * @param widget Pointer to the widget triggering the callback.
- * @param data Pointer to the MainApplicationGroup instance.
- */
+
 void MainApplicationGroup::SelectGroup_CB(Fl_Widget*, void* data)
 {
     MainApplicationGroup* mainGroup = static_cast<MainApplicationGroup*>(data);

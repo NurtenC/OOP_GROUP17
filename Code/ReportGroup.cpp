@@ -1,5 +1,5 @@
 #include "ReportGroup.h"
-#include <fl/Fl_Button.H>
+#include <Fl/Fl_Button.H>
 
 ReportGroup::ReportGroup(int x, int y, int w, int h, GuiManager *manager)
     : Fl_Group(x, y, w, h), guiManager(manager)

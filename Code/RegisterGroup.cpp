@@ -1,7 +1,3 @@
-/**
- * @file RegisterGroup.cpp
- * @brief Implements the RegisterGroup class for handling user registration within the GUI.
- */
 
 #include "RegisterGroup.h"
 #include "GuiManager.h"
@@ -11,18 +7,7 @@
 #include <FL/Fl_Input.H>
 #include <FL/fl_ask.H>
 
-/**
- * @brief Constructs a RegisterGroup object.
- *
- * Initializes the registration interface with input fields for username, password, and budget,
- * a register button to submit the information, and a back button to return to the start screen.
- *
- * @param x The x-coordinate of the group.
- * @param y The y-coordinate of the group.
- * @param w The width of the group.
- * @param h The height of the group.
- * @param manager Pointer to the GuiManager instance managing the GUI.
- */
+
 RegisterGroup::RegisterGroup(int x, int y, int w, int h, GuiManager *manager)
     : Fl_Group(x, y, w, h), guiManager(manager)
 {
@@ -58,17 +43,7 @@ RegisterGroup::RegisterGroup(int x, int y, int w, int h, GuiManager *manager)
     end(); // End of Fl_Group
 }
 
-/**
- * @brief Callback function for handling the registration process.
- *
- * This static function is triggered when the register button is clicked. It retrieves
- * the entered username, password, and budget, validates them, and attempts to register
- * the user using the ExpenseTracker instance. Provides feedback based on the success or failure
- * of the registration attempt.
- *
- * @param widget Pointer to the widget triggering the callback.
- * @param data Pointer to the RegisterGroup instance.
- */
+
 void RegisterGroup::registerCallback(Fl_Widget *widget, void *data)
 {
     RegisterGroup *registerGroup = static_cast<RegisterGroup *>(data);

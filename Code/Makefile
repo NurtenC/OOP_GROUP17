@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++11 -I ./include -I /usr/include/FL
 LDFLAGS = -L /usr/lib -lfltk
 
 # Target
-TARGET = ExpenseTracker
+TARGET = ExpenseTracker.exe
 
 # Source Files
 SRCS = main.cpp ExpenseTracker.cpp GuiManager.cpp StartScreenGroup.cpp LoginGroup.cpp RegisterGroup.cpp \

@@ -95,7 +95,7 @@ Use the navigation menu on the left to switch between different sections of the 
 
 ## **CONTRIBUTIONS**
 - **Nurten Çiftçioğlu**  :  Added GUI elements. Has done significant amount of work on implementation.  
-- **Mehmet Emre Yıldız**  :  Wrote the README documentation. Did some QA testing.
-- **Berat Mut**  :  Offered ideas on implementation. Did some QA testing.
-- **Furkan Demir**  :    Has generated the Doxygen documentation. Helped with implementation. Did some QA testing.
+- **Mehmet Emre Yıldız**  :  Wrote the README documentation. Did QA testing.
+- **Berat Mut**  :  Offered ideas on implementation. Did QA testing.
+- **Furkan Demir**  :    Has generated the Doxygen documentation. Helped with implementation. Did QA testing.
 - **Mustafa Kamal Mustafa Mustafa**  :  Has done significant amount of work on implementation.

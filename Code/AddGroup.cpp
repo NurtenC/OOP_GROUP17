@@ -36,7 +36,6 @@ void open_calendar(Fl_Widget *widget, void *data) {
 AddGroup::AddGroup(int x, int y, int w, int h, GuiManager *manager)
     : Fl_Group(x, y, w, h), guiManager(manager)
 {
-
     Fl_Tabs *tabs = new Fl_Tabs(165, 10, 800 - 170, 580);
     tabs->selection_color(fl_rgb_color(0x96, 0x7e, 0xd7)); // #9179ef
     tabs->labelcolor(FL_WHITE);
@@ -135,12 +134,27 @@ AddGroup::AddGroup(int x, int y, int w, int h, GuiManager *manager)
         regularIncome->labelcolor(FL_WHITE);
         regularIncome->labelsize(20);
         {
+            regularIncomeDescription = new Fl_Input(250, 150, 250, 40, "Description:");
+            regularIncomeAmount = new Fl_Input(250, 200, 100, 40, "Amount:");
+
+            regularIncomeDate = new Fl_Input(250, 250, 100, 40, "Date:");
+            Fl_Button *calendar_button = new Fl_Button(360, 250, 30, 30, "@>>");
+            calendar_button->callback(open_calendar, regularIncomeDate);
+
+            Fl_Button *addIncomeButton = new Fl_Button(430, 300, 100, 40, "Add");
+            addIncomeButton->color(fl_rgb_color(0x4f, 0x3b, 0x78));
+            addIncomeButton->labelcolor(FL_WHITE);
+            addIncomeButton->color2(fl_rgb_color(0xff, 0xd3, 0xb6));
+            addIncomeButton->align(FL_ALIGN_CENTER | FL_ALIGN_INSIDE);
+            addIncomeButton->labelsize(15);
+            addIncomeButton->callback(addRegularIncomeCallBack, this);
         }
         regularIncome->end();
     }
     tabs->end();
     end();
 }
+
 void AddGroup::addRegularExpenseCallBack(Fl_Widget *widget, void *data) {
     AddGroup *ag = static_cast<AddGroup *>(data);
     GuiManager *gm = ag->guiManager;
@@ -203,6 +217,64 @@ void AddGroup::addRegularExpenseCallBack(Fl_Widget *widget, void *data) {
     }
 }
 
+void AddGroup::addRegularIncomeCallBack(Fl_Widget *widget, void *data) {
+    AddGroup *ag = static_cast<AddGroup *>(data);
+    GuiManager *gm = ag->guiManager;
+    ExpenseTracker *et = gm->getExpenseTracker();
+
+    std::string description = ag->regularIncomeDescription->value();
+    std::string amount = ag->regularIncomeAmount->value();
+    std::string dateString = ag->regularIncomeDate->value();
+    double value;
+
+    // Check for empty fields
+    if (description.empty() || amount.empty() || dateString.empty()) {
+        fl_alert("Description, amount, and date cannot be empty");
+        return;
+    }
+
+    // Convert amount to double
+    try {
+        value = std::stod(amount);
+    } catch (const std::invalid_argument &e) {
+        fl_alert("Amount must be a number");
+        return;
+    }
+
+    // Convert date string to Date object
+    try {
+        // Convert date to `std::tm` structure
+        std::tm tm = {};
+        std::istringstream ss(dateString);
+        ss >> std::get_time(&tm, "%d/%m/%Y"); // Date format: DD/MM/YYYY
+        if (ss.fail()) {
+            fl_alert("Invalid date format. Expected format: DD/MM/YYYY");
+            return;
+        }
+
+        // Create `std::chrono::system_clock::time_point`
+        std::time_t timeAsInt = std::mktime(&tm);
+        if (timeAsInt == -1) {
+            fl_alert("Invalid date");
+            return;
+        }
+        auto timePoint = std::chrono::system_clock::from_time_t(timeAsInt);
+        Date date(timePoint);
+
+        // Add income
+        Income income(date, description, value);
+        et->addIncome(income);
+
+        // Show success message
+        fl_message("Regular Income successfully added!");
+        ag->regularIncomeDescription->value("");
+        ag->regularIncomeAmount->value("");
+        ag->regularIncomeDate->value("");
+        gm->update();
+    } catch (...) {
+        fl_alert("An unexpected error occurred while processing the date.");
+    }
+}
 
 
 void AddGroup::addExpenseCallback(Fl_Widget *widget, void *data)

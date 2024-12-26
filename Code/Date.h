@@ -6,6 +6,14 @@
 #include <ctime>
 
 class Date{
+    Date(const std::string& dateStr) {
+        std::istringstream ss(dateStr);
+        char delimiter;
+        ss >> day >> delimiter >> month >> delimiter >> year;
+        if (ss.fail() || delimiter != '/' || day <= 0 || month <= 0 || year <= 0) {
+            throw std::invalid_argument("Invalid date format. Expected format: DD/MM/YYYY");
+        }
+    }
 
 private:
 

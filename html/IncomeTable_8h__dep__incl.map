@@ -1,0 +1,5 @@
+<map id="Code/IncomeTable.h" name="Code/IncomeTable.h">
+<area shape="rect" id="node1" title="Declares the IncomeTable class for displaying incomes in a table format." alt="" coords="36,5,189,32"/>
+<area shape="rect" id="node2" href="$ReportGroup_8h.html" title="Declares the ReportGroup class for displaying and filtering expense and income reports in the GUI." alt="" coords="36,80,189,107"/>
+<area shape="rect" id="node3" href="$MainApplicationGroup_8h.html" title="Declares the MainApplicationGroup class for managing the main application interface." alt="" coords="5,155,220,181"/>
+</map>

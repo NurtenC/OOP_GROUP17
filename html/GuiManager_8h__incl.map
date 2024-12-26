@@ -1,0 +1,22 @@
+<map id="Code/GuiManager.h" name="Code/GuiManager.h">
+<area shape="rect" id="node1" title="Declares the GuiManager class for managing different GUI groups and the main application window." alt="" coords="293,5,443,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="188,80,255,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="279,80,457,107"/>
+<area shape="rect" id="node4" href="$ExpenseTracker_8h.html" title="Declares the ExpenseTracker class for managing users, expenses, incomes, and budgets." alt="" coords="482,80,617,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,155,56,181"/>
+<area shape="rect" id="node6" title=" " alt="" coords="191,453,249,480"/>
+<area shape="rect" id="node7" title=" " alt="" coords="616,453,683,480"/>
+<area shape="rect" id="node8" href="$User_8h.html" title="Declares the User class for managing user information and financial records." alt="" coords="329,155,391,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="423,229,486,256"/>
+<area shape="rect" id="node11" href="$Category_8h.html" title="Defines the Category enumeration for expense and income categories." alt="" coords="525,379,616,405"/>
+<area shape="rect" id="node12" href="$Date_8h.html" title="Declares the Date class for handling date and time functionalities." alt="" coords="435,379,501,405"/>
+<area shape="rect" id="node18" title=" " alt="" coords="671,155,737,181"/>
+<area shape="rect" id="node19" title=" " alt="" coords="761,155,847,181"/>
+<area shape="rect" id="node20" title=" " alt="" coords="871,155,927,181"/>
+<area shape="rect" id="node10" href="$Expense_8h.html" title="Declares the Expense class for managing expense entries." alt="" coords="353,304,442,331"/>
+<area shape="rect" id="node16" href="$Income_8h.html" title="Declares the Income class for managing income entries." alt="" coords="245,304,328,331"/>
+<area shape="rect" id="node17" href="$Budget_8h.html" title="Declares the Budget class for managing and tracking budget amounts." alt="" coords="217,229,297,256"/>
+<area shape="rect" id="node13" title=" " alt="" coords="332,453,407,480"/>
+<area shape="rect" id="node14" title=" " alt="" coords="431,453,505,480"/>
+<area shape="rect" id="node15" title=" " alt="" coords="529,453,588,480"/>
+</map>

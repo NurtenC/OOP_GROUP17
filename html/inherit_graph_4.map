@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,31,116,57"/>
+<area shape="rect" id="node2" href="$classExpenseTable.html" title="Displays expenses in a table format using FLTK." alt="" coords="164,5,275,32"/>
+<area shape="rect" id="node3" href="$classIncomeTable.html" title="Displays incomes in a table format using FLTK." alt="" coords="167,56,271,83"/>
+</map>

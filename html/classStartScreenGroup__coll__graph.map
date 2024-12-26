@@ -1,0 +1,4 @@
+<map id="StartScreenGroup" name="StartScreenGroup">
+<area shape="rect" id="node1" title="Manages the start screen interface, including welcome messages and navigation buttons." alt="" coords="5,80,141,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="33,5,113,32"/>
+</map>

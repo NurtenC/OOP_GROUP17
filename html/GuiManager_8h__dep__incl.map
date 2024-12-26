@@ -1,0 +1,10 @@
+<map id="Code/GuiManager.h" name="Code/GuiManager.h">
+<area shape="rect" id="node1" title="Declares the GuiManager class for managing different GUI groups and the main application window." alt="" coords="419,5,569,32"/>
+<area shape="rect" id="node2" href="$AddGroup_8h.html" title="Defines the AddGroup class for managing expense and income entries in the GUI." alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node3" href="$MainApplicationGroup_8h.html" title="Declares the MainApplicationGroup class for managing the main application interface." alt="" coords="135,155,349,181"/>
+<area shape="rect" id="node4" href="$HomepageGroup_8h.html" title="Declares the HomepageGroup class for displaying the homepage in the GUI." alt="" coords="215,80,397,107"/>
+<area shape="rect" id="node5" href="$LoginGroup_8h.html" title="Declares the LoginGroup class for handling user login within the GUI." alt="" coords="421,80,567,107"/>
+<area shape="rect" id="node6" href="$RegisterGroup_8h.html" title="Declares the RegisterGroup class for handling user registration within the GUI." alt="" coords="591,80,755,107"/>
+<area shape="rect" id="node7" href="$ReportGroup_8h.html" title="Declares the ReportGroup class for displaying and filtering expense and income reports in the GUI." alt="" coords="779,80,932,107"/>
+<area shape="rect" id="node8" href="$StartScreenGroup_8h.html" title="Declares the StartScreenGroup class for displaying the start screen within the GUI." alt="" coords="956,80,1141,107"/>
+</map>

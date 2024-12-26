@@ -1,0 +1,15 @@
+<map id="Code/ExpenseTable.h" name="Code/ExpenseTable.h">
+<area shape="rect" id="node1" title="Declares the ExpenseTable class for displaying expenses in a table format." alt="" coords="205,5,365,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,69,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="93,80,192,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="216,80,355,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="379,80,442,107"/>
+<area shape="rect" id="node6" href="$Expense_8h.html" title="Declares the Expense class for managing expense entries." alt="" coords="466,80,555,107"/>
+<area shape="rect" id="node7" href="$Category_8h.html" title="Defines the Category enumeration for expense and income categories." alt="" coords="347,155,437,181"/>
+<area shape="rect" id="node8" href="$Date_8h.html" title="Declares the Date class for handling date and time functionalities." alt="" coords="513,155,578,181"/>
+<area shape="rect" id="node10" title=" " alt="" coords="335,229,393,256"/>
+<area shape="rect" id="node11" title=" " alt="" coords="689,229,764,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="417,229,484,256"/>
+<area shape="rect" id="node12" title=" " alt="" coords="508,229,583,256"/>
+<area shape="rect" id="node13" title=" " alt="" coords="607,229,665,256"/>
+</map>

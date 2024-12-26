@@ -1,0 +1,12 @@
+<map id="Code/User.h" name="Code/User.h">
+<area shape="rect" id="node1" title="Declares the User class for managing user information and financial records." alt="" coords="444,5,544,32"/>
+<area shape="rect" id="node2" href="$ExpenseTracker_8h.html" title="Declares the ExpenseTracker class for managing users, expenses, incomes, and budgets." alt="" coords="409,80,579,107"/>
+<area shape="rect" id="node3" href="$GuiManager_8h.html" title="Declares the GuiManager class for managing different GUI groups and the main application window." alt="" coords="419,155,569,181"/>
+<area shape="rect" id="node4" href="$AddGroup_8h.html" title="Defines the AddGroup class for managing expense and income entries in the GUI." alt="" coords="5,229,140,256"/>
+<area shape="rect" id="node5" href="$MainApplicationGroup_8h.html" title="Declares the MainApplicationGroup class for managing the main application interface." alt="" coords="135,304,349,331"/>
+<area shape="rect" id="node6" href="$HomepageGroup_8h.html" title="Declares the HomepageGroup class for displaying the homepage in the GUI." alt="" coords="215,229,397,256"/>
+<area shape="rect" id="node7" href="$LoginGroup_8h.html" title="Declares the LoginGroup class for handling user login within the GUI." alt="" coords="421,229,567,256"/>
+<area shape="rect" id="node8" href="$RegisterGroup_8h.html" title="Declares the RegisterGroup class for handling user registration within the GUI." alt="" coords="591,229,755,256"/>
+<area shape="rect" id="node9" href="$ReportGroup_8h.html" title="Declares the ReportGroup class for displaying and filtering expense and income reports in the GUI." alt="" coords="779,229,932,256"/>
+<area shape="rect" id="node10" href="$StartScreenGroup_8h.html" title="Declares the StartScreenGroup class for displaying the start screen within the GUI." alt="" coords="956,229,1141,256"/>
+</map>

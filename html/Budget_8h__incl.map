@@ -1,0 +1,12 @@
+<map id="Code/Budget.h" name="Code/Budget.h">
+<area shape="rect" id="node1" title="Declares the Budget class for managing and tracking budget amounts." alt="" coords="71,5,188,32"/>
+<area shape="rect" id="node2" href="$Expense_8h.html" title="Declares the Expense class for managing expense entries." alt="" coords="85,80,174,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,229,64,256"/>
+<area shape="rect" id="node10" href="$Income_8h.html" title="Declares the Income class for managing income entries." alt="" coords="220,80,303,107"/>
+<area shape="rect" id="node3" href="$Category_8h.html" title="Defines the Category enumeration for expense and income categories." alt="" coords="73,155,164,181"/>
+<area shape="rect" id="node4" href="$Date_8h.html" title="Declares the Date class for handling date and time functionalities." alt="" coords="239,155,305,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="360,229,435,256"/>
+<area shape="rect" id="node5" title=" " alt="" coords="88,229,155,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="179,229,253,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="277,229,336,256"/>
+</map>

@@ -106,10 +106,17 @@ void ExpenseTracker::updateTime(int time)
 }
 bool ExpenseTracker::updateCurrentUserInfo(std::string& username, const std::string& password, double budget){
     
+    try
+    {
     currentUser->setUsername(username);
     currentUser->setPassword(password);
     currentUser->setBudget(budget);
     return true;
+
+    }
+    catch(...){
+        return false;
+    }
 }
 void ExpenseTracker::updateDate(std::chrono::system_clock::time_point time)
 {

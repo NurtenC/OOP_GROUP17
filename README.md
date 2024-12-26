@@ -1,4 +1,4 @@
-===================================================================================
+===========================================================
 # README - CENG201 OOP **GROUP17** Project: Expense Tracker
 
 
@@ -46,9 +46,15 @@ After successful compilation:
 
 - Navigate to the project directory in your terminal.
 - Run the executable. For example, on Windows, use:
-  ```bash
-  .\ExpenseTracker.exe
----
+    ```bash
+    .\ExpenseTracker.exe
+
+## **Cleaning Up**
+To remove the compiled executable, you can run:
+ ```bash
+make clean
+```
+This will delete the hellofltk.exe file.
 
 ## **HOW TO USE**
 

@@ -183,7 +183,10 @@ void ExpenseTracker::updateTime(int time)
 /**
  * @brief Updates the information of the currently logged-in user.
  *
- * Sets a new username, password, and budget for the current user.
+ * This method updates the current user's username, password, and budget. If the username is
+ * changed, it verifies that the new username does not already exist, updates the internal
+ * user map, and adjusts the current user pointer. For password or budget changes only,
+ * it directly modifies the current user's data.
  *
  * @param username The new username to set.
  * @param password The new password to set.
@@ -193,15 +196,51 @@ void ExpenseTracker::updateTime(int time)
 bool ExpenseTracker::updateCurrentUserInfo(std::string& username, const std::string& password, double budget){
     try
     {
-        currentUser->setUsername(username);
-        currentUser->setPassword(password);
-        currentUser->setBudget(budget);
-        return true;
+        if (!currentUser) {
+            return false; // No user is logged in
+        }
+
+        std::string oldUsername = currentUser->getUsername();
+        bool isUsernameChanged = (username != oldUsername);
+
+        // If the username is being changed, update the user map
+        if (isUsernameChanged) {
+            // Verify the new username does not already exist
+            if (userExists(username)) {
+                return false; // New username already in use
+            }
+
+            // Locate the current user in the user map
+            auto it = users.find(oldUsername);
+            if (it != users.end()) {
+                User updatedUser = it->second; // Copy the current user
+                updatedUser.setUsername(username); // Update the username
+                updatedUser.setPassword(password); // Update the password
+                updatedUser.setBudget(budget); // Update the budget
+
+                users.erase(it); // Remove the old username entry
+
+                users.emplace(username, updatedUser); // Add the updated user with the new username
+
+                currentUser = &(users.find(username)->second); // Update the current user pointer
+            } else {
+                return false; // Current user not found in the map
+            }
+        }
+        else {
+            // Update password and budget only
+            currentUser->setPassword(password);
+            currentUser->setBudget(budget);
+        }
+
+        return true; // Update successful
     }
-    catch(...){
-        return false;
+    catch(...) {
+        return false; // Catch any unexpected errors
     }
 }
+
+
 
 /**
  * @brief Updates the current date based on a new time point.

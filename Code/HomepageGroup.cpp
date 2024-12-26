@@ -223,15 +223,15 @@ void HomepageGroup::update()
         );
     }
 }
-
 /**
- * @brief Callback function to save user settings.
+ * @brief Callback function to handle saving user settings.
  *
  * This function is triggered when the user clicks the "Save" button in the Settings tab.
  * It validates the input fields, updates the user's information in the ExpenseTracker,
- * and provides feedback to the user.
+ * and provides feedback to the user. If the update is successful, the user is logged out 
+ * and redirected to the login screen to re-authenticate with updated credentials.
  *
- * @param widget The widget triggering the callback.
+ * @param widget Pointer to the widget triggering the callback.
  * @param data Pointer to the HomepageGroup instance.
  */
 void HomepageGroup::saveSettingsCallback(Fl_Widget* widget, void* data)
@@ -240,7 +240,7 @@ void HomepageGroup::saveSettingsCallback(Fl_Widget* widget, void* data)
     GuiManager* gm = hg->guiManager;
     ExpenseTracker* et = gm->getExpenseTracker();
 
-    // Check if the user is logged in
+    // Verify user is logged in
     if (!et || et->getCurrentUsername().empty()) {
         fl_alert("You must be logged in to update settings.");
         return;
@@ -251,36 +251,21 @@ void HomepageGroup::saveSettingsCallback(Fl_Widget* widget, void* data)
     std::string newPasswordConfirm = hg->settingsPasswordConfirmInput->value();
     std::string newBudgetStr = hg->settingsBudgetInput->value();
 
-    // Check if no input is provided
+    // Check if no input was provided
     bool noInputProvided = (newUsername.empty() && newPassword.empty() && newBudgetStr.empty());
     if (noInputProvided) {
         fl_alert("No changes detected.");
         return;
     }
 
-    // Check if passwords match
+    // Validate password confirmation
     if (!newPassword.empty() && newPassword != newPasswordConfirm) {
         fl_alert("Passwords do not match. Please try again.");
         return;
     }
 
-    // Retrieve the current budget
-    double oldBudget = 0.0;
-    {
-        std::string currentBudgetStr = et->getBudgetAsString(); // Example: "$50" or "Budget: $50"
-        size_t dollarPos = currentBudgetStr.find('$');
-        if (dollarPos != std::string::npos) {
-            std::string numberPart = currentBudgetStr.substr(dollarPos + 1);
-            try {
-                oldBudget = std::stod(numberPart);
-            } catch (...) {
-                oldBudget = 0.0;
-            }
-        }
-    }
-
-    // Parse the new budget or retain the old one
-    double newBudget = oldBudget;
+    // Parse the new budget or retain the old budget
+    double newBudget = et->getBudgetAsString().empty() ? 0.0 : std::stod(et->getBudgetAsString().substr(et->getBudgetAsString().find('$') + 1));
     if (!newBudgetStr.empty()) {
         try {
             newBudget = std::stod(newBudgetStr);
@@ -290,18 +275,22 @@ void HomepageGroup::saveSettingsCallback(Fl_Widget* widget, void* data)
         }
     }
 
-    // Retain existing username/password if new ones are not provided
+    // Retain the current username if not changed
     if (newUsername.empty()) {
         newUsername = et->getCurrentUsername();
     }
+
+    // Retain the current password if not changed
     if (newPassword.empty()) {
-        newPassword = " ";
+        newPassword = " "; // Placeholder if password is not updated
     }
 
-    // Update the user's information in ExpenseTracker
+    // Attempt to update user information
     bool success = et->updateCurrentUserInfo(newUsername, newPassword, newBudget);
     if (success) {
-        fl_message("User info updated successfully!");
+        fl_message("User info updated successfully! Please log in again with your new credentials.");
+        et->logout(); // Log out the current user
+        gm->showStartScreen(); // Redirect to the login screen
         gm->update();
     } else {
         fl_alert("Update failed! Possibly username already exists or invalid input.");

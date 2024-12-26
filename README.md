@@ -1,56 +1,86 @@
-===================================================================================
-# README - CENG201 Project: Expense Tracker
+# **OOP_GROUP17**
 
-## Project Overview:
-This project, named "Expense Tracker," is developed as part of the CENG201 course assignment. 
-It provides functionality for managing expenses and incomes through a user-friendly GUI. 
-The application is implemented using C++ with FLTK library for GUI components.
+### **GROUP MEMBERS:**  
+- **Nurten Çiftçioğlu**  
+- **Mehmet Emre Yıldız**  
+- **Berat Mut**  
+- **Furkan Demir**  
+- **Mustafa Kamal Mustafa Mustafa**  
 
-## Group Members:
-- Nurten Çiftçioğlu
-- Mustafa Kamal Mustafa Mustafa
-- Furkan Demir
-- Mehmet Emre Yıldız
-- Berat Mut
+This repository is dedicated to the CENG201 project assignment.
 
-## Features:
-- **User Registration and Login System:** Securely register and login to manage your personal finances.
-- **Expense Management:** Add and manage expenses with categories and descriptions.
-- **Income Management:** Track and manage incomes with descriptions.
-- **Report Generation:** Generate reports for expenses and incomes based on time and categories.
-- **Budget Tracking:** Monitor budgets and receive alerts when exceeding predefined limits.
+---
 
-## Build Instructions:
-This project uses `g++` as the compiler and follows standard C++11 conventions. 
-Ensure that the FLTK library is installed and configured on your system before proceeding.
+## **INTRODUCTION**
+This project focuses on developing an **Expense Tracking Application** that empowers users to:
 
-### Steps to Build:
-1. Clone the repository and navigate to the project directory.
-2. Ensure the `FLTK` library is installed on your system.
-3. Run `make` in the terminal to build the project.
-4. Execute the generated `ExpenseTracker` binary to run the application.
+- Log and track expenses efficiently.
+- Categorize expenses for better organization.
+- Set monthly budgets and manage spending limits.
+- Receive timely notifications upon approaching or exceeding budget thresholds.
 
-## Steps to Compile and Run:
-1. Install FLTK Library:
-Ensure that the FLTK library is installed on your system. On Ubuntu, you can install it using:
-```bash
-sudo apt-get install libfltk1.3-dev
-```
-2. Clean Build:
-To remove all compiled files and the generated binary, run:
-```bash
-make clean 
-```
+The application supports multiple users, enabling each user to independently manage their expenses while providing insightful reports and budget analytics.
 
-3. Compile the Program:
-Open a terminal in the directory containing the source code and the Makefile, then run:
-```bash
-make
-```
-This will compile the source code and produce an executable named *ExpenseTracker.exe*.
+---
 
-4. Run the Application:
-After successful compilation, run the application using:
-```bash
-./ExpenseTracker.exe
-```
+## **HOW TO COMPILE**
+
+To compile the project, follow these steps:
+
+1. Ensure the **FLTK library** is installed and correctly configured. Update directory paths in the Makefile as necessary.
+2. Open the project directory in your terminal.
+3. Run the following command based on your system:
+   - **Linux/MacOS:** `make`
+   - **Windows:** `mingw32-make`
+
+This will compile the project and generate the executable file.
+
+---
+
+## **HOW TO RUN**
+
+After successful compilation:
+
+- Navigate to the project directory in your terminal.
+- Run the executable. For example, on Windows, use:
+  ```bash
+  .\ExpenseTracker.exe
+
+---
+
+## **HOW TO USE**
+
+### **Account Management**
+1. **Create an Account:**  
+   - Click the **Register** button and enter your information.  
+2. **Log In:**  
+   - Click the **Login** button and provide your credentials to access your account.
+
+### **Navigation**  
+Use the navigation menu on the left to switch between different sections of the application. You can move back and forth between pages by clicking on the desired section.
+
+### **Features Overview**
+
+#### **Homepage**  
+- Displays user information.  
+- Use the **Settings** tab to update your username and password.  
+  - Changes require re-entering your credentials for security reasons.  
+
+#### **Add Page**  
+- **Add Expenses:**  
+  - Choose a **Category**.  
+  - Enter a **Description** and the **Amount**.  
+  - Optionally, specify a **Date** for regular expenses.  
+- **Add Income:**  
+  - Enter a **Description** and the **Amount**.  
+  - Regular income entries also support an optional **Date**.
+
+#### **Report Page**  
+- **Expense Table:**  
+  - View expenses filtered by **Duration** (specific time period) or **Category**.  
+- **Income Table:**  
+  - View income records filtered by a defined time period.  
+
+> **Note:** Tables update only after clicking the respective **List** button.
+
+---

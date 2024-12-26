@@ -1,4 +1,7 @@
-# **OOP_GROUP17**
+===================================================================================
+# README - CENG201 OOP **GROUP17** Project: Expense Tracker
+
+
 
 ### **GROUP MEMBERS:**  
 - **Nurten Çiftçioğlu**  
@@ -45,7 +48,6 @@ After successful compilation:
 - Run the executable. For example, on Windows, use:
   ```bash
   .\ExpenseTracker.exe
-
 ---
 
 ## **HOW TO USE**

@@ -1,8 +1,6 @@
 ===========================================================
 # README - CENG201 OOP **GROUP17** Project: Expense Tracker
 
-
-
 ### **GROUP MEMBERS:**  
 - **Nurten Çiftçioğlu**  
 - **Mehmet Emre Yıldız**  
@@ -38,6 +36,13 @@ To compile the project, follow these steps:
 
 This will compile the project and generate the executable file.
 
+## **Cleaning Up**
+To remove the compiled executable, you can run:
+ ```bash
+make clean
+```
+This will delete the hellofltk.exe file.
+
 ---
 
 ## **HOW TO RUN**
@@ -46,15 +51,10 @@ After successful compilation:
 
 - Navigate to the project directory in your terminal.
 - Run the executable. For example, on Windows, use:
-    ```bash
-    .\ExpenseTracker.exe
+  ```bash
+  .\ExpenseTracker.exe
 
-## **Cleaning Up**
-To remove the compiled executable, you can run:
- ```bash
-make clean
-```
-This will delete the hellofltk.exe file.
+---
 
 ## **HOW TO USE**
 
@@ -92,3 +92,10 @@ Use the navigation menu on the left to switch between different sections of the 
 > **Note:** Tables update only after clicking the respective **List** button.
 
 ---
+
+## **CONTRIBUTIONS**
+- **Nurten Çiftçioğlu**  :  Added GUI elements. Has done significant amount of work on implementation.  
+- **Mehmet Emre Yıldız**  :  Wrote the README documentation. Did some QA testing.
+- **Berat Mut**  :  Offered ideas on implementation. Did some QA testing.
+- **Furkan Demir**  :    Has generated the Doxygen documentation. Did some QA testing.
+- **Mustafa Kamal Mustafa Mustafa**  :  Has done significant amount of work on implementation.

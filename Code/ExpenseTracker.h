@@ -1,46 +1,20 @@
 #pragma once
-#include <map>
-#include <string>
-#include <chrono>
-#include "User.h"
-#include "Date.h"
-#include "Category.h"
-#include <cctype>
-#include <algorithm>
-#include <array>
+#include <Fl/Fl.H>
+#include <Fl/fl_draw.H>
+#include <Fl/Fl_Table_Row.H>
+#include <vector>
+#include "Expense.h"
 
 
-class ExpenseTracker {
-public:
-    ExpenseTracker();
-    ~ExpenseTracker();
+class ExpenseTable : public Fl_Table_Row{
 
-    bool registerUser(const std::string& username, const std::string& password, double budget);
-    bool login(const std::string& username, const std::string& password);
-    void logout();
-
-    std::string getCurrentUsername()const;
-    std::string getBudgetAsString() const;
-    Date* getDate();
-    std::chrono::system_clock::time_point getTime()const;
-    std::vector<Expense>* getExpenses();
-    std::vector<Income>* getIncomes();
-    void updateTime(int time);
-    void updateDate(std::chrono::system_clock::time_point time);
-    void addExpense(Expense expense);
-    void addIncome(Income income);
-
-    static Category getCategory(int index);
-
-
-private:
-    std::map<std::string, User> users;
-    User* currentUser;
-    Date* date;
+private: 
     std::vector<Expense>* expenses;
-    std::chrono::system_clock::time_point time;
-    static std::array<Category,10> categories; 
 
-private:
-    bool userExists(const std::string& username) const;
+public:
+    ExpenseTable(int x, int y, int w, int h,std::vector<Expense>* expenses );
+
+    void draw_cell(TableContext tableContext, int row, int col, int x, int y, int w, int h)override;
+    void updateTable(std::vector<Expense>* expenses);
+    
 };

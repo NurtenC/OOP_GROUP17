@@ -10,6 +10,7 @@ public:
 
     Budget(double amount);
     void addExpense(const Expense* expense);
+    void setBudget(double newAmount);    // mky Ekledi
     void addIncome(const Income* income);
     double getBudget()const;
     std::string getBudgetAsString()const;

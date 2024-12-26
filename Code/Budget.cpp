@@ -1,5 +1,5 @@
 #include "Budget.h"
-#include <fl/fl_ask.H>
+#include <Fl/fl_ask.H>
 #include <sstream>
 
 Budget::Budget(double amount)
@@ -26,10 +26,19 @@ double Budget::getBudget() const
     return amount;
 }
 
+// mky changed: bu fonksiyonda "Budget: $" yazısını kaldırdık, sadece "$" koyduk
 std::string Budget::getBudgetAsString() const
 {
     std::stringstream ss;
-    ss<<"Budget: $"<< amount;
-   
+    // Eski hali: ss << "Budget: $" << amount;  // Bu, HomepageGroup.cpp içinde "Budget: " ile birleşip iki kez yazdırıyordu
+    ss << "$" << amount;  // Sadece dolar işareti + miktar gösteriyoruz
     return ss.str();
 }
+
+    // mky Ekledi
+
+void Budget::setBudget(double newAmount)
+{
+    this->amount = newAmount;
+}
+    // mky Ekledi

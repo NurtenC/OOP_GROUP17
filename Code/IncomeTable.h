@@ -1,6 +1,6 @@
 #pragma once
 #include <Fl/Fl.H>
-#include <fl/fl_draw.H>
+#include <Fl/fl_draw.H>
 #include <Fl/Fl_Table_Row.H>
 #include <vector>
 #include "Income.h"

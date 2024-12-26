@@ -1,13 +1,12 @@
 #pragma once
 #include <FL/Fl.H>
 #include <FL/Fl_Double_Window.H>
-#include "ExpenseTracker.h"
+#include "ExpenseTracker.h" 
 
 class StartScreenGroup;
 class MainApplicationGroup;
 class LoginGroup;
 class RegisterGroup;
-
 
 class GuiManager {
 public:
@@ -39,4 +38,3 @@ private:
     int xResolution = 800;
     int yResolution = 600;
 };
-

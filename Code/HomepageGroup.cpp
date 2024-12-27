@@ -11,18 +11,18 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
 {
     // Place the "Welcome" text 100 pixels to the right of the Add menu's end and 100 pixels below the top of the window
     welcomeLabel = new Fl_Box(
-        165 + 100,  
-        y + 100,     
+        165 + 150,  
+        y + 85,     
         300, 50,
-        "Welcome to Expense Tracker"
+        "Expense Tracker"
     );
     welcomeLabel->labelcolor(fl_rgb_color(0x77, 0x52, 0x9e));
-    welcomeLabel->labelsize(28);
+    welcomeLabel->labelsize(32);
     welcomeLabel->labelfont(FL_COURIER_BOLD);
     welcomeLabel->align(FL_ALIGN_CENTER | FL_ALIGN_INSIDE);
 
     // Date box (top right)
-    dateBox = new Fl_Box(x + w - 210, y + 10, 80, 40);
+    dateBox = new Fl_Box(x + w - 210, y + 10, 85, 40);
     dateBox->box(FL_FLAT_BOX);
     dateBox->color(fl_rgb_color(0xa5, 0xbd, 0xfd));
     dateBox->labelsize(18);
@@ -31,7 +31,7 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
     dateBox->copy_label(guiManager->getExpenseTracker()->getDate()->getDateString().c_str());
 
     // Time box (top right, next to date)
-    timeBox = new Fl_Box(x + w - 120, y + 10, 80, 40);
+    timeBox = new Fl_Box(x + w - 120, y + 10, 85, 40);
     timeBox->box(FL_FLAT_BOX);
     timeBox->color(fl_rgb_color(0xa5, 0xbd, 0xfd));
     timeBox->labelsize(18);
@@ -40,7 +40,7 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
     timeBox->copy_label(Date::getTimeStr(guiManager->getExpenseTracker()->getTime()).c_str());
 
     // Logout button (bottom right)
-    Fl_Button* logoutButton = new Fl_Button(x + w - 160, y + h - 50, 140, 35, "Log Out");
+    Fl_Button* logoutButton = new Fl_Button(x + w - 395, y + h - 50, 140, 35, "Log Out");
     logoutButton->labelsize(16);
     logoutButton->color(fl_rgb_color(0xdc, 0xb5, 0xff));
     logoutButton->color2(fl_rgb_color(0xff, 0xd3, 0xb6));
@@ -50,40 +50,50 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
     Fl::add_timeout(0.001, updateTimeCallback, this);
 
     // Initialize User Info & Settings tabs starting slightly above the bottom of the window and after the Add menu (x=165)
-    userTabs = new Fl_Tabs(165, y + 160, 620, 320, "User Info & Settings");
-    userTabs->labelcolor(fl_rgb_color(0x77, 0x52, 0x9e));
+    
+    Fl_Tabs* userTabs = new Fl_Tabs(173, y + 160, 620, 290);
+    userTabs->selection_color(fl_rgb_color(0x96, 0x7e, 0xd7));
+    userTabs->labelcolor(FL_WHITE);
     userTabs->labelfont(FL_COURIER_BOLD);
     userTabs->labelsize(18);
-
+    {
     // --- USER INFO TAB ---
-    userInfoGroup = new Fl_Group(165, y + 190, 620, 290, "User Info");
-    userInfoGroup->labelcolor(fl_rgb_color(0x27, 0x29, 0x6d));
+    Fl_Group* userInfoGroup = new Fl_Group(171, y + 190, 620, 290, "User Info");
+    userInfoGroup->labelcolor(FL_WHITE);    
     userInfoGroup->labelfont(FL_COURIER_BOLD);
+    userInfoGroup->color(fl_rgb_color(0x96, 0x7e, 0xd7));
+    userInfoGroup->color2(fl_rgb_color(0x96, 0x7e, 0xd7));
     userInfoGroup->labelsize(16);
     {
         // Username label
         userInfoUsernameLabel = new Fl_Box(
-            150 + 20,       // Left side
+            150+20,       // Left side
             (y + 220),      
             200, 30,
             "Username:"
         );
-        userInfoUsernameLabel->labelsize(14);
+        userInfoUsernameLabel->labelsize(20);
+        userInfoUsernameLabel->labelcolor(FL_WHITE);
+       
 
         // Budget label
         userInfoBudgetLabel = new Fl_Box(
-            150 + 20,
+            150+20,
             (y + 260),
             200, 30,
             "Budget:"
         );
-        userInfoBudgetLabel->labelsize(14);
+        userInfoBudgetLabel->labelsize(20);
+        userInfoBudgetLabel->labelcolor(FL_WHITE);
+        
     }
     userInfoGroup->end();
 
     // --- SETTINGS TAB ---
-    userSettingsGroup = new Fl_Group(165, y + 190, 620, 290, "Settings");
-    userSettingsGroup->labelcolor(fl_rgb_color(0x27, 0x29, 0x6d));
+    Fl_Group* userSettingsGroup = new Fl_Group(170, y + 190, 620, 290, "Settings");
+    userSettingsGroup->labelcolor(FL_WHITE);
+    userSettingsGroup->color(fl_rgb_color(0x96, 0x7e, 0xd7));
+    userSettingsGroup->color2(fl_rgb_color(0x96, 0x7e, 0xd7));
     userSettingsGroup->labelfont(FL_COURIER_BOLD);
     userSettingsGroup->labelsize(16);
     {
@@ -137,7 +147,7 @@ HomepageGroup::HomepageGroup(int x, int y, int w, int h, GuiManager* manager)
         settingsSaveButton->callback(saveSettingsCallback, this);
     }
     userSettingsGroup->end();
-
+}
     userTabs->end();
     end(); // End of Fl_Group
 }

@@ -93,9 +93,12 @@ Use the navigation menu on the left to switch between different sections of the 
 
 ---
 
+## **LINKS**
+YouTube URL  :  https://www.youtube.com/watch?v=DnBcuvYefRI
+
 ## **CONTRIBUTIONS**
 - **Nurten Çiftçioğlu**  :  Added GUI elements. Has done significant amount of work on implementation.  
-- **Mehmet Emre Yıldız**  :  Wrote the README documentation. Did QA testing.
+- **Mehmet Emre Yıldız**  :  Wrote the README documentation. Did QA testing. Did the in-class presentation. Prepared the demonstration video.
 - **Berat Mut**  :  Offered ideas on implementation. Did QA testing.
 - **Furkan Demir**  :    Has generated the Doxygen documentation. Helped with implementation. Did QA testing.
 - **Mustafa Kamal Mustafa Mustafa**  :  Has done significant amount of work on implementation.

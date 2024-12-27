@@ -41,7 +41,7 @@ To remove the compiled executable, you can run:
  ```bash
 make clean
 ```
-This will delete the hellofltk.exe file.
+This will delete the ExpenseTracker.exe file.
 
 ---
 
